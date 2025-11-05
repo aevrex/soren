@@ -1,4 +1,4 @@
-![GoVyOS Logo](./assets/govyosLogo.png)
+![GoVyOS Logo](./assets/sorenLogo.png)
 
 [![Go Report Card](https://goreportcard.com/badge/github.com/aevrex/govyos)](https://goreportcard.com/report/github.com/aevrex/govyos)
 [![GoDoc](https://godoc.org/github.com/aevrex/govyos?status.svg)](https://godoc.org/github.com/aevrex/govyos)
