@@ -48,7 +48,3 @@ Contributions are welcome. This project is intended to be a community-driven rep
 
 ## License
 This project is licensed under the Apache 2.0 License.
-
-## Acknowledgements
-- The VyOS Team for their excellent open-source router OS.
-- The author of the original vyos-go for their initial work.
