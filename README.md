@@ -1,8 +1,14 @@
 ![soren Logo](./assets/sorenLogo.png)
 
+<div align=center>
+
+
 [![Go Report Card](https://goreportcard.com/badge/github.com/aevrex/soren)](https://goreportcard.com/report/github.com/aevrex/soren)
 [![GoDoc](https://godoc.org/github.com/aevrex/soren?status.svg)](https://godoc.org/github.com/aevrex/soren)
 [![License: MIT](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/license/apache-2-0)
+
+<a href="https://www.buymeacoffee.com/DevByJordan" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Support%20my%20work&emoji=&slug=DevByJordan&button_colour=FFDD00&font_colour=000000&font_family=Poppins&outline_colour=000000&coffee_colour=ffffff" alt="Buy Me A Coffee" height="41" width="174"></a>
+</div>
 
 `soren` is a modern, actively maintained Go SDK for interacting with the VyOS router operating system's GraphQL API.
 
