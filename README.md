@@ -1,10 +1,10 @@
-![GoVyOS Logo](./assets/sorenLogo.png)
+![soren Logo](./assets/sorenLogo.png)
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/aevrex/govyos)](https://goreportcard.com/report/github.com/aevrex/govyos)
-[![GoDoc](https://godoc.org/github.com/aevrex/govyos?status.svg)](https://godoc.org/github.com/aevrex/govyos)
+[![Go Report Card](https://goreportcard.com/badge/github.com/aevrex/soren)](https://goreportcard.com/report/github.com/aevrex/soren)
+[![GoDoc](https://godoc.org/github.com/aevrex/soren?status.svg)](https://godoc.org/github.com/aevrex/soren)
 [![License: MIT](https://img.shields.io/badge/License-Apache_2.0-yellow.svg)](https://opensource.org/license/apache-2-0)
 
-`govyos` is a modern, actively maintained Go SDK for interacting with the VyOS router operating system's HTTP API.
+`soren` is a modern, actively maintained Go SDK for interacting with the VyOS router operating system's HTTP API.
 
 This project was created as a successor to the `go-vyos` library. It will provide a complete, robust, and idiomatic Go interface for configuring, managing, and monitoring VyOS devices.
 
@@ -27,7 +27,7 @@ This library is currently in **active development**. The API may have breaking c
 ## Installation
 
 ```sh
-go get github.com/aevrex/govyos
+go get github.com/aevrex/soren
 ```
 
 ## Contributing
