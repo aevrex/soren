@@ -3,19 +3,10 @@ package soren
 import (
 	"context"
 	"encoding/json"
-	"errors"
 	"fmt"
 	"io"
 	"net/http"
-
-	"github.com/aevrex/soren/client"
 )
-
-type APIResponse struct {
-	Success bool        `json:"success"`
-	Data    interface{} `json:"data,omitempty"`
-	Error   string      `json:"error,omitempty"`
-}
 
 type SystemInfo struct {
 	Version  string `json:"version"`
