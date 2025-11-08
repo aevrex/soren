@@ -10,7 +10,7 @@
 <h1><a href="https://buymeacoffee.com/devbyjordan" target="_blank"><img src="https://img.buymeacoffee.com/button-api/?text=Support%20my%20work&emoji=&slug=DevByJordan&button_colour=5F7FFF&font_colour=FFFFFF&font_family=Poppins&outline_colour=000000&coffee_colour=FFFFFF" alt="Buy Me A Coffee" height="50" width="183"></a></h1>
 </div>
 
-`soren` is a modern, actively maintained Go SDK for interacting with the VyOS router operating system's GraphQL API.
+`soren` is a modern, actively maintained Go SDK for interacting with the VyOS router operating system's REST and GraphQL APIs.
 
 This project was created as a successor to the `go-vyos` library. It will provide a complete, robust, and idiomatic Go interface for configuring, managing, and monitoring VyOS devices.
 
