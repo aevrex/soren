@@ -6,11 +6,11 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io"
 	"mime/multipart"
 	"net/http"
 )
 
-// APIResponse is the common wrapper for all API calls.
 type APIResponse struct {
 	Success bool            `json:"success"`
 	Data    json.RawMessage `json:"data,omitempty"`
@@ -20,15 +20,16 @@ type APIResponse struct {
 func (c *Client) executeCommand(ctx context.Context, apiPath string, payload any) (*APIResponse, error) {
 	fullURL := c.baseURL + apiPath
 
-	var requestBody bytes.Buffer
-	writer := multipart.NewWriter(&requestBody)
-
 	jsonBytes, err := json.Marshal(payload)
 	if err != nil {
 		return nil, fmt.Errorf("failed to marshal JSON payload: %w", err)
 	}
+	jsonString := string(jsonBytes)
 
-	if err := writer.WriteField("data", string(jsonBytes)); err != nil {
+	var requestBody bytes.Buffer
+	writer := multipart.NewWriter(&requestBody)
+
+	if err := writer.WriteField("data", jsonString); err != nil {
 		return nil, fmt.Errorf("failed to write 'data' field: %w", err)
 	}
 
@@ -53,13 +54,18 @@ func (c *Client) executeCommand(ctx context.Context, apiPath string, payload any
 	}
 	defer resp.Body.Close()
 
+	respBody, err := io.ReadAll(resp.Body)
+	if err != nil {
+		return nil, fmt.Errorf("failed to read response body for %s: %w", fullURL, err)
+	}
+
 	if resp.StatusCode != http.StatusOK {
-		return nil, fmt.Errorf("API request to %s failed with status: %s", fullURL, resp.Status)
+		return nil, fmt.Errorf("API request to %s failed with status: %s. Response body: %s", fullURL, resp.Status, string(respBody))
 	}
 
 	var apiResponse APIResponse
-	if err := json.NewDecoder(resp.Body).Decode(&apiResponse); err != nil {
-		return nil, fmt.Errorf("failed to decode API response wrapper for %s: %w", fullURL, err)
+	if err := json.Unmarshal(respBody, &apiResponse); err != nil {
+		return nil, fmt.Errorf("failed to decode API response wrapper for %s: %w. Raw response: %s", fullURL, err, string(respBody))
 	}
 
 	if !apiResponse.Success {

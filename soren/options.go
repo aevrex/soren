@@ -1,4 +1,3 @@
-// soren/options.go
 package soren
 
 import (
@@ -10,11 +9,15 @@ type Option func(*Client)
 
 func WithInsecureTLS() Option {
 	return func(c *Client) {
-		tr := &http.Transport{
-			TLSClientConfig: &tls.Config{
-				InsecureSkipVerify: true,
-			},
+		tr, ok := c.httpClient.Transport.(*http.Transport)
+		if !ok || tr == nil {
+			tr = http.DefaultTransport.(*http.Transport).Clone()
 		}
+
+		if tr.TLSClientConfig == nil {
+			tr.TLSClientConfig = &tls.Config{}
+		}
+		tr.TLSClientConfig.InsecureSkipVerify = true
 
 		c.httpClient.Transport = tr
 	}
