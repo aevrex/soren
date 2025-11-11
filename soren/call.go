@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"log"
 )
 
 // Call executes an API command and unmarshals the response data into the result variable.
@@ -16,9 +15,9 @@ func Call[T any](c *Client, ctx context.Context, apiPath string, payload any, re
 
 	prettyJSON, indentErr := json.MarshalIndent(apiResp.Data, "", "  ")
 	if indentErr != nil {
-		log.Printf("Warning: Failed to pretty-print API response data: %v", indentErr)
+		fmt.Printf("Warning: Failed to pretty-print API response data: %v", indentErr)
 	} else {
-		log.Printf("API Response Data (Path: %s):\n%s", apiPath, string(prettyJSON))
+		fmt.Printf("API Response Data (Path: %s):\n%s", apiPath, string(prettyJSON))
 	}
 
 	if err := json.Unmarshal(apiResp.Data, result); err != nil {
