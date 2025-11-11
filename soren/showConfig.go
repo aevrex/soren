@@ -11,7 +11,7 @@ type ShowConfigPayload struct {
 
 func (c *Client) ShowConfig(ctx context.Context, path []string) (map[string]any, error) {
 	payload := ShowConfigPayload{
-		Op:   "getInfo",
+		Op:   "showConfig",
 		Path: path,
 	}
 
@@ -22,6 +22,5 @@ func (c *Client) ShowConfig(ctx context.Context, path []string) (map[string]any,
 		return nil, err
 	}
 
-	// 3. Return the fully populated dynamic map
 	return result, nil
 }
