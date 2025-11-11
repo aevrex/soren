@@ -9,7 +9,7 @@ type PowerOffPayload struct {
 	Path []string `json:"path"`
 }
 
-func (c *Client) RePowerOff(ctx context.Context, path []string) (map[string]any, error) {
+func (c *Client) PowerOff(ctx context.Context, path []string) (map[string]any, error) {
 	payload := PowerOffPayload{
 		Op:   "poweroff",
 		Path: path,
@@ -17,7 +17,7 @@ func (c *Client) RePowerOff(ctx context.Context, path []string) (map[string]any,
 
 	var result map[string]any
 
-	err := Call(c, ctx, "/reboot", payload, &result)
+	err := Call(c, ctx, "/poweroff", payload, &result)
 	if err != nil {
 		return nil, err
 	}
